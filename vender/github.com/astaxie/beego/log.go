@@ -17,7 +17,7 @@ package beego
 import (
 	"strings"
 
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/logs"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/logs"
 )
 
 // Log levels to control the logging output.

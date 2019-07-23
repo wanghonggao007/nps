@@ -5,8 +5,8 @@ package mux
 import (
 	"bufio"
 	"bytes"
-	"github.com/cnlh/nps/lib/common"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/logs"
+	"github.com/wanghonggao007/nps/lib/common"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/logs"
 	"github.com/pkg/errors"
 	"io"
 	"net"

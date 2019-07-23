@@ -26,11 +26,11 @@ import (
 	"sync"
 	"time"
 
-	beecontext "github.com/cnlh/nps/vender/github.com/astaxie/beego/context"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/context/param"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/logs"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/toolbox"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/utils"
+	beecontext "github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/context"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/context/param"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/logs"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/toolbox"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/utils"
 )
 
 // default filter execution points

@@ -1,8 +1,8 @@
 package routers
 
 import (
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego"
-	"github.com/cnlh/nps/web/controllers"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego"
+	"github.com/wanghonggao007/nps/web/controllers"
 )
 
 func init() {

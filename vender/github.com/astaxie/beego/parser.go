@@ -30,9 +30,9 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/context/param"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/logs"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/utils"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/context/param"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/logs"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/utils"
 )
 
 var globalRouterTemplate = `package routers

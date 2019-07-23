@@ -28,7 +28,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/session"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/session"
 )
 
 // Regexes for checking the accept headers

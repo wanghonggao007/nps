@@ -3,8 +3,8 @@ package file
 import (
 	"encoding/json"
 	"errors"
-	"github.com/cnlh/nps/lib/common"
-	"github.com/cnlh/nps/lib/rate"
+	"github.com/wanghonggao007/nps/lib/common"
+	"github.com/wanghonggao007/nps/lib/rate"
 	"os"
 	"path/filepath"
 	"strings"

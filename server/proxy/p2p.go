@@ -1,9 +1,9 @@
 package proxy
 
 import (
-	"github.com/cnlh/nps/lib/common"
-	"github.com/cnlh/nps/lib/pool"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/logs"
+	"github.com/wanghonggao007/nps/lib/common"
+	"github.com/wanghonggao007/nps/lib/pool"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/logs"
 	"net"
 	"strings"
 	"time"

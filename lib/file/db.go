@@ -3,9 +3,9 @@ package file
 import (
 	"errors"
 	"fmt"
-	"github.com/cnlh/nps/lib/common"
-	"github.com/cnlh/nps/lib/crypt"
-	"github.com/cnlh/nps/lib/rate"
+	"github.com/wanghonggao007/nps/lib/common"
+	"github.com/wanghonggao007/nps/lib/crypt"
+	"github.com/wanghonggao007/nps/lib/rate"
 	"net/http"
 	"regexp"
 	"sort"

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"errors"
-	"github.com/cnlh/nps/lib/pool"
+	"github.com/wanghonggao007/nps/lib/pool"
 	"math"
 	"net"
 	"sync"

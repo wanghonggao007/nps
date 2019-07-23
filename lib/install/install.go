@@ -3,7 +3,7 @@ package install
 import (
 	"errors"
 	"fmt"
-	"github.com/cnlh/nps/lib/common"
+	"github.com/wanghonggao007/nps/lib/common"
 	"io"
 	"log"
 	"os"

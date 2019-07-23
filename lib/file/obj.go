@@ -1,7 +1,7 @@
 package file
 
 import (
-	"github.com/cnlh/nps/lib/rate"
+	"github.com/wanghonggao007/nps/lib/rate"
 	"github.com/pkg/errors"
 	"strings"
 	"sync"

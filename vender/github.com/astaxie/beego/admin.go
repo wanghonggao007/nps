@@ -25,10 +25,10 @@ import (
 
 	"reflect"
 
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/grace"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/logs"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/toolbox"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/utils"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/grace"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/logs"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/toolbox"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/utils"
 )
 
 // BeeAdminApp is the default adminApp used by admin module.

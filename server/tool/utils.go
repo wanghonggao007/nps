@@ -1,8 +1,8 @@
 package tool
 
 import (
-	"github.com/cnlh/nps/lib/common"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego"
+	"github.com/wanghonggao007/nps/lib/common"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/load"
 	"github.com/shirou/gopsutil/mem"
