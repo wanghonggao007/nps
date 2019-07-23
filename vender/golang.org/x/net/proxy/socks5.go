@@ -8,7 +8,7 @@ import (
 	"context"
 	"net"
 
-	"github.com/cnlh/nps/vender/golang.org/x/net/internal/socks"
+	"github.com/wanghonggao007/nps/vender/golang.org/x/net/internal/socks"
 )
 
 // SOCKS5 returns a Dialer that makes SOCKSv5 connections to the given

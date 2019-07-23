@@ -2,10 +2,10 @@ package client
 
 import (
 	"container/heap"
-	"github.com/cnlh/nps/lib/conn"
-	"github.com/cnlh/nps/lib/file"
-	"github.com/cnlh/nps/lib/sheap"
-	"github.com/cnlh/nps/vender/github.com/astaxie/beego/logs"
+	"github.com/wanghonggao007/nps/lib/conn"
+	"github.com/wanghonggao007/nps/lib/file"
+	"github.com/wanghonggao007/nps/lib/sheap"
+	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/logs"
 	"github.com/pkg/errors"
 	"net"
 	"net/http"

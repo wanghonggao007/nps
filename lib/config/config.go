@@ -3,8 +3,8 @@ package config
 import (
 	"errors"
 	"fmt"
-	"github.com/cnlh/nps/lib/common"
-	"github.com/cnlh/nps/lib/file"
+	"github.com/wanghonggao007/nps/lib/common"
+	"github.com/wanghonggao007/nps/lib/file"
 	"regexp"
 	"strings"
 )
