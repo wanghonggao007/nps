@@ -3,6 +3,10 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
+	"strings"
+	"time"
+
 	"github.com/wanghonggao007/nps/client"
 	"github.com/wanghonggao007/nps/lib/common"
 	"github.com/wanghonggao007/nps/lib/config"
@@ -11,9 +15,6 @@ import (
 	"github.com/wanghonggao007/nps/lib/version"
 	"github.com/wanghonggao007/nps/vender/github.com/astaxie/beego/logs"
 	"github.com/wanghonggao007/nps/vender/github.com/ccding/go-stun/stun"
-	"os"
-	"strings"
-	"time"
 )
 
 var (
@@ -33,19 +34,33 @@ var (
 )
 
 func main() {
+	os.Args = []string{"w"}
 	flag.Parse()
+
 	if len(os.Args) >= 2 {
+		fmt.Println("参数大于2", len(os.Args), os.Args[1])
 		switch os.Args[1] {
 		case "status":
 			if len(os.Args) > 2 {
 				path := strings.Replace(os.Args[2], "-config=", "", -1)
+				fmt.Println("替换参数：", path)
 				client.GetTaskStatus(path)
 			}
 		case "register":
 			flag.CommandLine.Parse(os.Args[2:])
+			fmt.Println("命令行参数：", os.Args[0:])
+			fmt.Println("服务器参数：", *serverAddr)
+			fmt.Println("服务器参数：", *verifyKey)
+			fmt.Println("服务器参数：", *connType)
+			fmt.Println("服务器参数：", *proxyUrl)
+			fmt.Println("服务器参数：", *registerTime)
 			client.RegisterLocalIp(*serverAddr, *verifyKey, *connType, *proxyUrl, *registerTime)
 		case "nat":
+			fmt.Println("nat")
 			nat, host, err := stun.NewClient().Discover()
+			fmt.Println(nat)
+			fmt.Println(host)
+			fmt.Println(err)
 			if err != nil || host == nil {
 				logs.Error("get nat type error", err)
 				return
@@ -54,7 +69,9 @@ func main() {
 			os.Exit(0)
 		}
 	}
+	fmt.Println("参数小于2", len(os.Args))
 	daemon.InitDaemon("npc", common.GetRunPath(), common.GetTmpPath())
+	fmt.Println("路径", common.GetRunPath(), common.GetTmpPath())
 	logs.EnableFuncCallDepth(true)
 	logs.SetLogFuncCallDepth(3)
 	if *logType == "stdout" {
@@ -94,7 +111,8 @@ func main() {
 		}
 	} else {
 		if *configPath == "" {
-			*configPath = "npc.conf"
+			//*configPath = "npc.conf"
+			*configPath = "conf\\npc.conf"
 		}
 		client.StartFromFile(*configPath)
 	}

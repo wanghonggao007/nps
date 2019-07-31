@@ -87,6 +87,8 @@ func GetTaskStatus(path string) {
 var errAdd = errors.New("The server returned an error, which port or host may have been occupied or not allowed to open.")
 
 func StartFromFile(path string) {
+	fmt.Println("客户端配置")
+    fmt.Println(path)
 	first := true
 	cnf, err := config.NewConfig(path)
 	if err != nil || cnf.CommonConfig == nil {
