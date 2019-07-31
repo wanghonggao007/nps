@@ -1,0 +1,247 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>client list</h5>
+
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+            <div class="content">
+            {{if eq true .isAdmin}}
+
+                <div class="table-responsive">
+                    <div id="toolbar">
+                        <a href="/client/add" class="btn btn-primary dim" type="button" langtag="info-new">新增</a>
+                    </div>
+                    <table id="taskList_table" class="table-striped table-hover"
+                           data-mobile-responsive="true"></table>
+                </div>
+            </div>
+            {{end}}
+                <div class="ibox-content">
+
+                    <table id="table"></table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function del(id) {
+        if (confirm("Are you sure you want to delete it？？")) {
+            $.ajax({
+                type: "POST",
+                url: "/client/del",
+                data: {"id": id},
+                success: function (res) {
+                    alert(res.msg)
+                    if (res.status) {
+                        document.location.reload();
+                    }
+                }
+            })
+        }
+    }
+
+    function start(id) {
+        if (confirm("Are you sure you want to start it？？")) {
+            $.ajax({
+                type: "POST",
+                url: "/client/changestatus",
+                data: {"id": id, "status": 1},
+                success: function (res) {
+                    alert(res.msg)
+                    if (res.status) {
+                        document.location.reload();
+                    }
+                }
+            })
+        }
+    }
+
+    function stop(id) {
+        if (confirm("Are you sure you want to stop it？")) {
+            $.ajax({
+                type: "POST",
+                url: "/client/changestatus",
+                data: {
+                    "id": id, "status": 0
+                },
+                success:
+                        function (res) {
+                            alert(res.msg)
+                            if (res.status) {
+                                document.location.reload();
+                            }
+                        }
+            })
+        }
+    }
+
+    function edit(id) {
+        window.location.href = "/client/edit?id=" + id
+    }
+
+    function add() {
+        window.location.href = "/client/add"
+    }
+
+    function tunnel(id) {
+        window.location.href = "/index/all?client_id=" + id
+    }
+
+    function host(id) {
+        window.location.href = "/index/hostlist?client_id=" + id
+    }
+
+    /*bootstrap table*/
+    $('#table').bootstrapTable({
+        toolbar: "#toolbar",
+        method: 'post', // 服务器数据的请求方式 get or post
+        url: "/client/list", // 服务器数据的加载地址
+        contentType: "application/x-www-form-urlencoded",
+        striped: true, // 设置为true会有隔行变色效果
+        search: true,
+        showHeader: true,
+        showColumns: true,
+        showRefresh: true,
+        pagination: true,//分页
+        sidePagination: 'server',//服务器端分页
+        pageNumber: 1,
+        pageList: [5, 10, 20, 50],//分页步进值
+        detailView: true,
+        smartDisplay: true, // 智能显示 pagination 和 cardview 等
+        detailFormatter: function (index, row, element) {
+            return '<b langtag="info-max-conn-num">最大连接数</b>：' + row.MaxConn + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + '<b langtag="info-now-conn-num">当前连接数</b>：' + row.NowConn + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + '<b langtag="info-flow-limit">流量限制</b>：' + row.Flow.FlowLimit + `m&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + '<b langtag="info-rate-limit">带宽限制</b>：' + row.RateLimit + `kb/s&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + '<b langtag="info-max-tunnel-num">隧道数限制</b>：' + row.MaxTunnelNum + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + '<b langtag="info-client-web-username">web登陆用户名</b>：' + row.WebUserName + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + '<b langtag="info-client-web-password">web登陆密码</b>：' + row.WebPassword + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp` + "<br/><br>"
+                    + '<b langtag="info-crypt">加密</b>：' + row.Cnf.Crypt + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + '<b langtag="info-compress">压缩</b>：' + row.Cnf.Compress + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + '<b langtag="info-config-conn-allow">是否允许配置文件模式连接</b>：' + row.ConfigConnAllow + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + '<b langtag="info-web-auth-username">basic认证用户名</b>：' + row.Cnf.U + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+                    + '<b langtag="info-web-auth-password">basic认证密码</b>：' + row.Cnf.P + `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp` + "<br/><br>"
+                    + '<b langtag="info-command">命令</b>：' + "<code>./npc{{.win}} -server={{.ip}}:{{.p}} -vkey=" + row.VerifyKey + " -type=" +{{.bridgeType}} +"</code>"
+        },
+        //表格的列
+        columns: [
+            {
+                field: 'Id',//域值
+                title: 'id',//标题
+                visible: true,//false表示不显示
+            },
+            {
+                field: 'Remark',//域值
+                title: 'remark',//标题
+                visible: true,//false表示不显示
+            },
+            {
+                field: 'VerifyKey',//域值
+                title: 'vkey',//标题
+                visible: true,//false表示不显示
+                formatter: function (value, row, index) {
+                    if (!row.NoStore) {
+                        return value
+                    } else {
+                        return "public vkey"
+                    }
+                }
+            },
+            {
+                field: 'Addr',//域值
+                title: 'client addr',//标题
+                visible: true,//false表示不显示
+            },
+            {
+                field: 'InletFlow',//域值
+                title: 'in flow',//标题
+                visible: true,//false表示不显示
+                sortable: true,//启用排序
+                formatter: function (value, row, index) {
+                    return change(row.Flow.InletFlow)
+                }
+            },
+            {
+                field: 'ExportFlow',//域值
+                title: 'out flow',//标题
+                visible: true,//false表示不显示
+                sortable: true,//启用排序
+                formatter: function (value, row, index) {
+                    return change(row.Flow.ExportFlow)
+                }
+            },
+            {
+                field: 'IsConnect',//域值
+                title: 'speed',//内容
+                visible: true,//false表示不显示
+                formatter: function (value, row, index) {
+                    return change(row.Rate.NowRate) + "/S"
+                }
+            },
+            {
+                field: 'Status',//域值
+                title: 'run',//内容
+                visible: true,//false表示不显示
+                formatter: function (value, row, index) {
+                    if (value) {
+                        return '<span class="badge badge-primary">open</span>'
+                    } else {
+                        return '<span class="badge badge-badge">close</span>'
+                    }
+                }
+            },
+            {
+                field: 'IsConnect',//域值
+                title: 'status',//内容
+                visible: true,//false表示不显示
+                formatter: function (value, row, index) {
+                    if (value) {
+                        return '<span class="badge badge-primary">online</span>'
+                    } else {
+                        return '<span class="badge badge-badge">offline</span>'
+                    }
+                }
+            },
+            {
+                field: 'option',//域值
+                title: 'option',//内容
+                visible: true,//false表示不显示
+                formatter: function (value, row, index) {
+                    btn_group = '<div class="btn-group">'
+                    btn = `{{if eq true .isAdmin}}<button onclick="del(` + row.Id + `)" class="btn-danger"><i class="fa fa-trash"></i></button>{{end}}<button onclick="edit(` + row.Id + `)" class="btn-primary"><i class="fa fa-edit"></i></button></div>`
+
+                    if (row.Status) {
+                        return btn_group  {{if eq true .isAdmin}}+ `<button onclick="stop(` + row.Id + `)" class="btn-warning"><i class="fa fa-close"></i></button>`{{end}}+ btn
+                    } else {
+                        return btn_group  {{if eq true .isAdmin}}+ `<button onclick="start(` + row.Id + `)" class="btn-warning"><i class="fa fa-check"></i></button>`{{end}}+ btn
+                    }
+                }
+            },
+            {
+                field: 'show',//域值
+                title: 'show',//内容
+                visible: true,//false表示不显示
+                formatter: function (value, row, index) {
+                    return `<button onclick="tunnel(` + row.Id + `)" class="btn-info">tunnel</button><button onclick="host(` + row.Id + `)" class="btn-primary">host</button>`
+                }
+            }
+        ]
+    });
+
+
+</script>
