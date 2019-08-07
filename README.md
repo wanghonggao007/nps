@@ -960,5 +960,5 @@ POST /auth/getauthkey
 
 
 ### 微信
-http://osijiy9i7.bkt.clouddn.com/%E6%94%AF%E4%BB%98.PNG
+![image](http://osijiy9i7.bkt.clouddn.com/%E6%94%AF%E4%BB%98.PNG)
 
