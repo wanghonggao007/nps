@@ -956,9 +956,10 @@ POST /auth/getauthkey
 - 如果有新的功能特性反馈，可以通过issues或者qq群反馈
 
 ## 捐助
-如果您觉得此次nps的修改对你有帮助，欢迎给予我们一定捐助，也是帮助nps更好的发展。
+如果您觉得此次nps的修改对你有帮助，欢迎打赏一下！
 
 
 ### 微信
 ![image](http://osijiy9i7.bkt.clouddn.com/%E6%94%AF%E4%BB%98.PNG)
+http://osijiy9i7.bkt.clouddn.com/%E6%94%AF%E4%BB%98.PNG
 
