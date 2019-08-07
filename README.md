@@ -960,5 +960,5 @@ POST /auth/getauthkey
 
 
 ### 微信
-![image](https://github.com/cnlh/nps/blob/master/image/donation_wx.png?raw=true)
+![image](http://osijiy9i7.bkt.clouddn.com/%E6%94%AF%E4%BB%98.PNG)
 
