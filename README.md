@@ -956,12 +956,9 @@ POST /auth/getauthkey
 - 如果有新的功能特性反馈，可以通过issues或者qq群反馈
 
 ## 捐助
-如果您觉得nps对你有帮助，欢迎给予我们一定捐助，也是帮助nps更好的发展。
+如果您觉得此次nps的修改对你有帮助，欢迎给予我们一定捐助，也是帮助nps更好的发展。
 
-### 支付宝
-![image](https://github.com/cnlh/nps/blob/master/image/donation_zfb.png?raw=true)
+
 ### 微信
 ![image](https://github.com/cnlh/nps/blob/master/image/donation_wx.png?raw=true)
-## 交流群
 
-![二维码.jpeg](https://i.loli.net/2019/02/15/5c66c32a42074.jpeg)
