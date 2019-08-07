@@ -955,10 +955,10 @@ POST /auth/getauthkey
 - 项目处于开发阶段，还有很多待完善的地方，如果可以贡献代码，请提交 PR 至 dev 分支
 - 如果有新的功能特性反馈，可以通过issues或者qq群反馈
 
-## 捐助
+## 打赏
 如果您觉得此次nps的修改对你有帮助，欢迎打赏一下！
 
 
-### 微信
+### 微信打赏
 ![image](http://osijiy9i7.bkt.clouddn.com/%E6%94%AF%E4%BB%98.PNG)
 
